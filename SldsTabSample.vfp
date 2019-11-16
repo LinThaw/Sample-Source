@@ -1,0 +1,121 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+    <!-- jquery 1.12.4 is working with edge and safari. ref jquery : https://code.jquery.com/jquery/#jquery-all-1.x -->
+    
+    <script type="text/javascript" >
+    var jQuery = $.noConflict();
+    jQuery(document).ready(function() {
+        // Initialize
+    });
+    function showTab1(){
+        jQuery("#tab-default-1").show(); 
+        jQuery("#tab-default-2").hide();   
+        
+        jQuery("#tab-default-2__li").removeClass('slds-is-active');     
+        jQuery("#tab-default-1__li").addClass('slds-is-active');  
+        
+        jQuery("#tab-default-2").removeClass('slds-show');
+        jQuery("#tab-default-2").addClass('slds-hide');
+        
+        jQuery("#tab-default-1").removeClass('slds-hide');
+        jQuery("#tab-default-1").addClass('slds-show'); 
+    }
+    function showTab2(){
+        jQuery("#tab-default-1").hide();
+        jQuery("#tab-default-2").show(); 
+        
+        
+        jQuery("#tab-default-1__li").removeClass('slds-is-active');     
+        jQuery("#tab-default-2__li").addClass('slds-is-active'); 
+        
+        jQuery("#tab-default-1").removeClass('slds-show');
+        jQuery("#tab-default-1").addClass('slds-hide');
+        
+        jQuery("#tab-default-2").removeClass('slds-hide');
+        jQuery("#tab-default-2").addClass('slds-show');         
+    }
+    </script>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+        </head>
+        <body>
+            <!-- REQUIRED SLDS WRAPPER -->
+            <div class="slds-scope">
+                <!-- MASTHEAD -->
+                <p class="slds-text-heading--label slds-m-bottom--small">
+                    SLDS Tab Sample with Jquery
+                </p>
+                <!-- / MASTHEAD -->
+                <!-- PRIMARY CONTENT WRAPPER -->
+                <div class="myapp">
+                    
+                    <div class="slds-tabs_default">
+                        <ul class="slds-tabs_default__nav" role="tablist">
+                            <li id="tab-default-1__li" class="slds-tabs_default__item slds-is-active" title="Tab 1" role="presentation">
+                                <a class="slds-tabs_default__link" href="javascript:showTab1()" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Tab 1</a>
+                            </li>
+                            <li id="tab-default-2__li" class="slds-tabs_default__item" title="Tab 2" role="presentation">
+                                <a class="slds-tabs_default__link" href="javascript:showTab2()" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Tab 2</a>
+                            </li>
+                        </ul>
+                        <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                            <!-- SECTION - BADGE COMPONENTS -->
+                            <section aria-labelledby="badges"> 
+                                <div class="slds-p-top_medium">
+                                    <span class="slds-badge slds-theme--inverse">Tab 1 Item 1</span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span>
+                                        Tab 1 Item 1 Content
+                                    </span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span class="slds-badge slds-theme--inverse">Tab 1 Item 2</span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span>
+                                        Tab 1 Item 2 Content
+                                    </span>
+                                </div>
+                            </section>
+                            <!-- / SECTION - BADGE COMPONENTS -->                         
+                        </div>
+                        <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+                            <!-- SECTION - BADGE COMPONENTS -->
+                            <section aria-labelledby="badges"> 
+                                <div class="slds-p-top_medium">
+                                    <span class="slds-badge slds-theme--inverse">Tab 2 Item 1</span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span>
+                                        Tab 2 Item 1 Content
+                                    </span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span class="slds-badge slds-theme--inverse">Tab 2 Item 2</span>
+                                </div>
+                                <div class="slds-p-top_medium">
+                                    <span>
+                                        Tab 2 Item 2 Content
+                                    </span>
+                                </div>
+                            </section>
+                            <!-- / SECTION - BADGE COMPONENTS -->                     
+                        </div>
+                    </div>                    
+                    
+                </div>
+                <!-- / PRIMARY CONTENT WRAPPER -->              
+            </div>
+            <!-- / REQUIRED SLDS WRAPPER -->
+        </body>
+    </html>
+</apex:page>
